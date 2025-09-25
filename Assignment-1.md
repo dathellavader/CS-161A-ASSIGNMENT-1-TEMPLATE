@@ -1,123 +1,59 @@
-# **CS 161B: Programming and Problem Solving II**
+# **CS 161A: Programming and Problem Solving I**
 
-# Assignment 1: Food Cart Ordering 
+# Assignment 1: Weekly Payroll
 
-![Food Truck](https://raw.githubusercontent.com/Glen-Sasek-PCC-Instructor/CS-161B/refs/heads/main/img/Food-Truck.png)
 
 ## Introduction
 
-Have you ever felt the need to do some quick calculations when you order food?  Let’s write a menu-driven program that will do a few calculations based on the user’s choice.
+During September, businesses across the United States take time to thank their payroll teams and reflect on all of the successful paydays of the past year. While technology has made it easier than ever for HR teams to pay their employees, crunching the numbers can still be a laborious task for payroll professionals. National Payroll Week serves as a reminder that there are dedicated professionals working hard everyday to ensure we get paid accurately and on time.
+
 
 ## Purpose
 
-In this assignment, you will be writing a menu-driven program to calculate how much a customer will pay once they are done ordering food at a food cart. You will give the user a menu with some choices, and let them pick a choice. Based on the choice they pick, you will ask them some questions and give them results. This process will repeat until they choose to quit the program. The purpose of this assignment is to modularize your program.
+Recall, when we design a program to solve a problem, we break it down into steps a computer can execute. The purpose of this assignment is to develop an algorithm and a working C++ program for a simple weekly payroll calculation.
 
 After completing this assignment you will be able to:
 
-* Write functions to modularize your program and reduce redundancy  
-* Write functions that take parameters by value and return values  
-* Write void functions that take nothing and return nothing  
-* Use a do-while loop to display a menu to the user  
-* Use the correct exit condition to exit out of the loop, no breaks or returns inside the loop.
+* Use C++ syntax to:  
+  * read inputs from the user  
+  * store the input into appropriate typed variable  
+  * perform arithmetic calculations, and produce output
 
 ## Task
-Before you get started:
-* Review zyLabs Chapter 9\. CS161A: Functions Pass by reference.
 
-* Check out Sample Assignment A01 \- [SampleA01.cpp](https://github.com/Glen-Sasek-PCC-Instructor/CS-161B/blob/main/SampleA01.cpp)
+* Before you get started:
 
-Your job is to create a program that will help someone calculate how much a customer will pay once they are done ordering. They may order one or more items. 
-You will need to obtain some information from the user:
+  * Check out the Sample Assignment 01 code \- [Sample1 Code](https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/a1-sample.cpp)
 
-  * Each item they want to order. This includes the cost of the item (using a floating point value) and optionally include a name (using a string)
+* To implement a simply weekly payroll program you will do the following:
 
-  * If they have another item to their order. If yes, then get that information and add to the total cost. If “no”, then go to the next step.
+  * Read the employee ID number (an **int**) from the user
 
-  * They may want to add a tip as well. Prompt them to enter the tip amount and add this to the final total.
+  * Read the number of hours worked (an **int**) from the user
 
-  * Some discounts may apply for larger orders. If the total (including the tip) is greater than $50, they get a 10% discount, and if the total is greater than $35 and less than $50, they get a 5% discount.
+  * Read the hourly rate (an **int**) from the user
 
-## Required Functions
+  * Read the federal withholding rate (an **int**, e.g., 10\)
 
-* **void welcome()** \- This function prints a welcome message to the user.
+  * You must read one input per line. Please see the sample run below. **This is part of the required coding construct.**
 
-* **void displayMenu()**\- This function prints the menu to the user. Your menu must have 2 items \- Place an order and quit. Here is an example:
+  * Your program should calculate the total gross pay, the Income Tax Withholding, and the net pay.
 
-  1. Place an order
+  * First calculate the total gross pay from the hours worked and the hourly rate inputs. 
 
-  2. Quit
+  * Then calculate the Federal Tax withholding using the gross pay and the federal withholding rate.
 
-* **void readOption(int \&option)**. 
+  * Then calculate the Net Pay by subtracting the federal tax withholding from the gross pay.
 
-  1. This function will read an option and return to the called function through the reference parameter.
+  * Output the following:: 
 
-  2. Call the **readInt** function to do this. You must catch all invalid data such as characters, negative numbers etc.
+    \-Total Gross Pay 
 
-  3. You must also do validation to make sure that the number is 1 or 2 and nothing other than that. Use a while loop to do this.
+    \-Federal Tax Withholding
 
-* **void readInt(string prompt, int \&num)**
+    \-Net Pay
 
-  1. This function should be used any time you read any integers from the user. Use this function to read the menu option from the user.
-
-  2. It takes a string prompt, outputs it, reads a number from the user, validates and returns the num by reference.
-
-  3. See [Samplea01.cpp](https://github.com/Glen-Sasek-PCC-Instructor/CS-161B/blob/main/SampleA01.cpp) for the function. You may use the function in the sample.
-
-  4. You must catch all invalid data such as characters, negative numbers etc.
-
-* **void readDouble(string prompt, double \&num)**
-
-  1. This function should be used any time you read any floats or doubles from the user. Use this function to read the cost of the item, tip, etc from the user.
-
-  2. It takes a string prompt, outputs it, reads a number from the user, validates and returns the num by reference.
-
-  3. Write it exactly like the **readInt** but declare a double or float instead of an int.
-
-  4. You must catch all invalid data such as characters, negative numbers etc.
-
-* **void placeOrder(double \&cost)**
-
-  1. Call this function if the user selects 1 from the menu. 
-
-  2. This function will go through a loop and ask the user to enter item names and their cost until the user answers ‘n’ to the question \- Do you want another item? (y/n): You must validate to make sure the user enters y/n for this question (it should not be case sensitive \- must accept both uppercase and lowercase). Use a while loop to do this.
-
-  3. The total cost must be returned through the reference parameter and be printed in main().
-
-  4. Call the **readDouble** function to do this. You must catch all invalid data such as characters, negative numbers etc.
-
-  5. Do not print anything in this function. The tip, discount, and final total must be printed in **main()**.
-
-* **double tipDiscount(double \&tip, double \&discount, double cost)**.
-
-  1. This function takes the **cost** by value, and the **tip** and **discount** by reference.
-
-  2. **The function prompts the user to enter a tip amount, and reads into the tip parameter.** This will be used to calculate the total, and it will also go back to **main()** so it can be printed in **main()**. 
-
-  3. Call the **readDouble** function to do this. You must catch all invalid data such as characters, negative numbers etc.
-
-  4. It then calculates the discount based on the total (including the tip), and returns the final total to main(). The **discount** amount goes back by reference to be printed in **main().** See sample run.
-
-  5. Do not print anything inside the function.
-
-* **int main()**
-
-  1. Declare all variables needed.
-
-  2. Call the **displayMenu** function.
-
-  3. Call the **readOption** function.
-
-  4. There must be a do-while loop in main that will keep repeating the menu until the user enters 2\.
-
-  5. When the user enters 1, call the **placeOrder** function. 
-
-  6. Then call the **tipDiscount** function that will calculate the final total and return the value. It will also receive the tip and discount amount by reference.
-
-  7.  Print the tip, discount and final total when it comes back. Repeat the menu and continue until the user enters option 2\.
-
-  8. Print dollar amounts with a $ sign and output to 2 decimal places.
-
-  9. When the user enters 2, quit the program after printing a thank you message.
+    The [Sample1 Code](https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/a1-sample.cpp) shows you how to do this. 
 
 * To get started, open the [Assignment Template File](https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/main.cpp), and make a copy.
 
@@ -125,99 +61,58 @@ You will need to obtain some information from the user:
 
 * You must express your algorithm as **pseudocode.** [Pseudocode Reference](https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt)
 
+* First do this calculation on paper and pencil and make sure you get the same answers as my two sample runs shown below in the Criteria for Success.
+
+* Print a goodbye message.
+
+* **Use only the concepts we have learned so far.**
 
 ## Criteria for Success
 
-Test your program using the following sample runs, making sure you get the same output when using the given inputs:
+* Test your program using the following sample runs, making sure you get the same output when using the given inputs:
 
 ```
-🍇 🍈 🍉   🍋 🍌 🥭   🍎 🍏 🍑   🍒 🫐 
-🍅         🫒    🥥   🥑    🥔    🥕   🥓
-🌽 🫑      🥬    🥦   🧄    🧅   🥜    🫘 
-🌰         🫚    🫛   🫜    🍞   🥐    🥖 
-🫓         🥨 🍗 🥩   🥯 🥞 🧇   🧀 🍖 
+Welcome to my Weekly Payroll program!!
+Enter your employee ID number (numbers only): 34567
+Enter number of hours worked (whole numbers): 40
+Enter the hourly rate: 17
+Enter the federal withholding rate: 15
 
-Welcome to my Food Cart Program!
+Your Payroll Summary:
+Total Gross Pay: $680
+Federal Tax Withholding: $102
+Net Pay: $578
 
-Pick an option:
-    1. Place an order
-    2. Quit
->> 9
-Invalid Option!
+Thank you for using my Weekly Payroll program!!
+```
 
-Pick an option:
-    1. Place an order
-    2. Quit
->> 1
+```
+Welcome to my Weekly Payroll program!!
+Enter your employee ID number (numbers only): 12345
+Enter number of hours worked (whole numbers): 30
+Enter the hourly rate: 22
+Enter the federal withholding rate: 10
 
-Enter the name of your item: Pasta
-Enter the cost of your item $: 15.75
-Do you want another item? (y/n): y
+Your Payroll Summary:
+Total Gross Pay: $660
+Federal Tax Withholding: $66
+Net Pay: $594
 
-Enter the name of your item: Bowl
-Enter the cost of your item $: 12.75
-Do you want another item? (y/n): y
+Thank you for using my Weekly Payroll program!!
 
-Enter the name of your item: Soda
-Enter the cost of your item $: 3.50
-Do you want another item? (y/n): x
-Invalid Option! 
-Do you want another item? (y/n): n
-
-Your order is: $32.00
-Enter tip $: 3.50
-Your order with tip is: $35.50
-5% discount: $1.78
-Total: $33.73
-
-Pick an option:
-    1. Place an order
-    2. Quit
->> 1
-
-Enter the name of your item: Fajita Bowl
-Enter the cost of your item $: 20.75
-Do you want another item? (y/n): y
-
-Enter the name of your item: Vietnamese plate
-Enter the cost of your item $: 22.75
-Do you want another item? (y/n): y
-
-Enter the name of your item: Soda
-Enter the cost of your item $: 3.50
-Do you want another item? (y/n): x
-Invalid Option! 
-Do you want another item? (y/n): n
-
-Your order is: $47.00
-Enter tip $: 3.50
-Your order with tip is: $50.50
-10% discount: $5.05
-Total: $45.45
-
-Pick an option:
-    1. Place an order
-    2. Quit
->> 2
-
-Thank you for using my program!
 ```
 
 
-## Coding Construct Requirements:
 
-  * Your program must have function prototypes. Place the prototypes for your functions globally, after your \#includes, just before main(). All functions must be implemented after main().
+* Include **pseudocode** in part d of the design section.
 
-  * Each function must do only what it is supposed to do. For example, the menu function will simply display the menu, the readOption will take the option from the user, and so on.
+* **Follow these Coding Construct Requirements:**
 
-  * **You may not use a while true loop and break statements in the loop.**
+  * Must have all the right data types mentioned under Task.
 
-  * **Your program must do all data validation mentioned in the functions.**
+  * You must read one input per line.
 
-  * Try not to have any redundant code (repeated code) in your program. That is the purpose of functions.
+  * Print a welcome and goodbye message.
 
-  * When you display the numbers for cost, tip, and discount, it should be formatted appropriately with two decimal places.
 
-  * Use constants where appropriate (for discount percentages).
-
-  * **Do not use arrays or any vectors for this program. Use only the concepts and functions we have learned so far.**
+* Upload your plain text file to the D2L assignment by **Sunday**.
