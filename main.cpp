@@ -1,34 +1,34 @@
 // ------------- FILE HEADER -------------
-// Author ✅:
-// Assignment ✅:
-// Date ✅:
+// Author ✅: Ella Henner
+// Assignment ✅: 1
+// Date ✅: 9/28/25
 // Citations:
 
 
 // ------------- ZYBOOKS SCORES -------------
-// Chapter ✅:
-// Participation ✅:
-// Challenge ✅:
-// Labs ✅:
+// Chapter ✅: 1
+// Participation ✅:100
+// Challenge ✅: 100
+// Labs ✅: 100
 
 
 // ------------- DISCORD POSTS -------------
 // https://discord.com/invite/URYKKf8YHm
-// Count ✅:
+// Count ✅: 1
 // Links (Optional):
 
 
 // ------------- DESIGN DOCUMENT -------------
-// A. INPUT ✅:
-// B. OUTPUT ✅:
-// C. CALCULATIONS ✅:
-// D. LOGIC and ALGORITHMS ✅:
+// A. INPUT ✅: yes
+// B. OUTPUT ✅: yes
+// C. CALCULATIONS ✅: yes
+// D. LOGIC and ALGORITHMS ✅: yes
 //    (Optional) flow chart link or file name:
 
 
 // ------------- TESTING -------------
-// PASS ALL GIVEN SAMPLE RUN TESTS ✅:
-// (Optional) Additional tests count:
+// PASS ALL GIVEN SAMPLE RUN TESTS ✅:yes
+// (Optional) Additional tests count:1
 
 
 // ------------- CODE -------------
@@ -55,7 +55,7 @@ double federal_withholding_usd = 0.0;
 double net_pay_usd = 0.0;
 
 //messages
-cout << "Welcome to the coolest Weekly Payroll program!"; << endl;
+cout << "Welcome to the coolest Weekly Payroll program!" << endl << endl;
 
 cout << "Enter your employee ID number (NUMBERS ONLY!!): ";
 cin >> employee_id;
@@ -74,6 +74,7 @@ gross_pay_usd = hours_worked * hourly_rate_usd;
 double decimal_withholding = federal_withholding_percent / 100.0;
 federal_withholding_usd = gross_pay_usd * decimal_withholding;
 net_pay_usd = gross_pay_usd - federal_withholding_usd;
+cout << endl;
 
 // end messages
 
@@ -83,7 +84,7 @@ cout << "Total Gross Pay: $" << gross_pay_usd << endl;
 
 cout << "Federal Tax Withholding: $" << federal_withholding_usd << endl;
 
-cout << "Net Pay: $" << net_pay_usd << endl;
+cout << "Net Pay: $" << net_pay_usd << endl << endl;
 
 
 cout << "Remember to tip your programmer :)" << endl;
